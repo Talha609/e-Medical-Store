@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+	<link type="text/css" rel="stylesheet" href="sign.css">
+    <title>Registration Page</title>
+	<script type="text/javascript" language="javascript">
+		function validate(){
+			var user_name=document.getElementById("n1").value;
+			var pss=document.getElementById("p1").value;
+			var firm_name=document.getElementById("f1").value;
+			var owner_name=document.getElementById("o1").value;
+			var address=document.getElementById("a1").value;
+			var gst=document.getElementById("g1").value;
+			var email=document.getElementById("e1").value;
+			var locality=document.getElementById("l1").value;
+			
+			
+			if(user_name.length<4){
+				alert("user name empty");
+				return false;
+			}
+            
+			var namepattern=/^[a-z A-Z]{4,15}$/;
+            if(!namepattern.test(user_name)){
+                //test will check that pattern is matching or not
+            	alert("only alphabet are allowed in name");
+                return false;
+			}
+			
+			var passpattern= new RegExp("^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{5,})");
+			if(!passpattern.test(pss)){
+				alert("password must contain 1 character , one number and one special symbol ");
+				return false;
+			}
+			
+			var firmpattern = /^[ a-zA-Z0-9]{4,15}$/;
+			if(!firmpattern.test(firm_name)){
+				alert("firm name should contain only alphabet and number");
+				return false
+			}
+			if(!firmpattern.test(owner_name)){
+				alert("owner name should contain only alphabet and number");
+				return false
+			}	
+			
+			addresspattern=/^[a-zA-Z0-9-/@#$ %^&]{10,}$/
+			if(!addresspattern.test(address)){
+				alert("address lenth must be greater than 10 ");
+				return false;
+			}
+			
+			if(!firmpattern.test(gst)){
+				alert("gst number contain only number and alphabet");
+				return false;
+			}
+	
+			//var emailpattern =/^[a-zA-z0-9]{4,}@[a-zA-Z]{3,}[.][a-zA-Z]{3,}/
+			if(email.length<6){
+				alert("email patten not satisfies");
+				return false;
+			}
+			
+			if(!firmpattern.test(locality)){
+				alert("locality must contain only alphabet and number and length greater than 3");
+				return false;
+			}
+			return true;
+		}
+	</script>
+</HEAD>
+<BODY>
+	<DIV class="wrap">
+	<form method="post" action="registeration.jsp" onsubmit="return validate()">
+		<input type="text" placeholder="User Name" value="" name="c1" id="n1">
+				<input type="email" placeholder="Email" value="" name="c1" id="e1">
+				<input type="password" placeholder="Password" value="" name="c1" id="p1">
+				<input type="text" placeholder="Firm Name" value="" name="c1" id="f1">
+				<input type="text" placeholder="Owner name" value="" name="c1" id="o1">
+				<input type="text" placeholder="GST Number" value="" name="c1" id="g1">
+				<input type="text" placeholder="Address" value="" name="c1" id="a1">
+				<input type="text" placeholder="Locality" value="" name="c1" id="l1">
+		<input type="submit">	
+		<input type="reset">
+	</form>
+	</DIV>
+	
+</BODY>
+</HTML>

@@ -1,0 +1,204 @@
+-- MySQL dump 10.13  Distrib 5.5.50, for Win32 (x86)
+--
+-- Host: localhost    Database: medical
+-- ------------------------------------------------------
+-- Server version	5.5.50
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `appointment`
+--
+
+DROP TABLE IF EXISTS `appointment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `appointment` (
+  `name` varchar(30) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `doctor_name` varchar(30) DEFAULT NULL,
+  `email_id` varchar(30) DEFAULT NULL,
+  KEY `email_id` (`email_id`),
+  CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`email_id`) REFERENCES `registration` (`email_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `appointment`
+--
+
+LOCK TABLES `appointment` WRITE;
+/*!40000 ALTER TABLE `appointment` DISABLE KEYS */;
+INSERT INTO `appointment` VALUES ('Akif',21,'2019-10-30','Talha','Talha@gmail.com');
+/*!40000 ALTER TABLE `appointment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `doctor`
+--
+
+DROP TABLE IF EXISTS `doctor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `doctor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) DEFAULT NULL,
+  `specialist` varchar(30) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `from_time` time DEFAULT NULL,
+  `to_time` time DEFAULT NULL,
+  `fees` int(11) DEFAULT NULL,
+  `mon` varchar(1) DEFAULT NULL,
+  `tue` varchar(1) DEFAULT NULL,
+  `wed` varchar(1) DEFAULT NULL,
+  `thurs` varchar(1) DEFAULT NULL,
+  `fri` varchar(1) DEFAULT NULL,
+  `sat` varchar(1) DEFAULT NULL,
+  `sun` varchar(1) DEFAULT NULL,
+  `email_id` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `email_id` (`email_id`),
+  CONSTRAINT `doctor_ibfk_1` FOREIGN KEY (`email_id`) REFERENCES `registration` (`email_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `doctor`
+--
+
+LOCK TABLES `doctor` WRITE;
+/*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
+INSERT INTO `doctor` VALUES (2,'Talha','Eyes','2019-10-27','16:00:00','18:00:00',100,'1','1','1','1','1','1','1','Talha@gmail.com');
+/*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `medicine`
+--
+
+DROP TABLE IF EXISTS `medicine`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `medicine` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) DEFAULT NULL,
+  `manufactures` varchar(30) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `email_id` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `email_id` (`email_id`),
+  CONSTRAINT `medicine_ibfk_1` FOREIGN KEY (`email_id`) REFERENCES `registration` (`email_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `medicine`
+--
+
+LOCK TABLES `medicine` WRITE;
+/*!40000 ALTER TABLE `medicine` DISABLE KEYS */;
+INSERT INTO `medicine` VALUES (1,'Paracetamol','Abcdef','2019-10-23',2,100,'Talha@gmail.com');
+/*!40000 ALTER TABLE `medicine` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `medicine_name`
+--
+
+DROP TABLE IF EXISTS `medicine_name`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `medicine_name` (
+  `name` varchar(30) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `time` date DEFAULT NULL,
+  `email_id` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `medicine_name`
+--
+
+LOCK TABLES `medicine_name` WRITE;
+/*!40000 ALTER TABLE `medicine_name` DISABLE KEYS */;
+/*!40000 ALTER TABLE `medicine_name` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `registration`
+--
+
+DROP TABLE IF EXISTS `registration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `registration` (
+  `user_name` varchar(30) DEFAULT NULL,
+  `email_id` varchar(30) NOT NULL DEFAULT '',
+  `password` varchar(15) DEFAULT NULL,
+  `firm_name` varchar(30) DEFAULT NULL,
+  `owner_name` varchar(30) DEFAULT NULL,
+  `gst_no` varchar(15) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `locality` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`email_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `registration`
+--
+
+LOCK TABLES `registration` WRITE;
+/*!40000 ALTER TABLE `registration` DISABLE KEYS */;
+INSERT INTO `registration` VALUES ('Talha','Talha@gmail.com','Talha123@','Talha','Talha','QWERTY12345','QWERTYASDFGH','ASDFGH');
+/*!40000 ALTER TABLE `registration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sell_history`
+--
+
+DROP TABLE IF EXISTS `sell_history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sell_history` (
+  `name` varchar(30) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `time` date DEFAULT NULL,
+  `email_id` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sell_history`
+--
+
+LOCK TABLES `sell_history` WRITE;
+/*!40000 ALTER TABLE `sell_history` DISABLE KEYS */;
+INSERT INTO `sell_history` VALUES ('Paracetamol',5,'2019-10-30','Talha@gmail.com'),('Paracetamol',1,'2019-10-30','Talha@gmail.com'),('Paracetamol',2,'2019-10-30','Talha@gmail.com');
+/*!40000 ALTER TABLE `sell_history` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-10-31 14:34:00

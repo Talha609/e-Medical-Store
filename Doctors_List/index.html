@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .grid 
+            { 
+                  display: grid;
+                  grid-template-columns: 1fr 1fr 1fr 1fr;
+                  grid-gap: 10px;
+                  align-items: stretch;
+                  justify-items: stretch;
+				  width:410%;
+            }
+            .grid img
+            {
+                  border: 1px solid #ccc;
+                  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+				  max-width:100%;
+            }
+        </style>
+        <link href="styling.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		
+    </head>
+    <body>
+        <script src="Nav_home.js"></script>
+		<form name="myform">
+			<div class="grid" style="width: 80%;align-self: center;margin-left: 10%">
+				<a href="list.jsp?B=Bone" class="grid">
+					<img src="../images/bone.jpg" alt="Bone">
+				</a>
+				<a href="list.jsp?B=Brain" class="grid">
+					<img src="../images/brain.jpg" alt="Brain">
+				</a>
+				<a href="list.jsp?B=Dentist" class="grid">
+					<img src="../images/dentist.jpg" alt="Dentist">
+				</a>
+				<a href="list.jsp?B=Ears" class="grid">
+					<img src="../images/ear.jpg" alt="Ears">
+				</a>
+				<a href="list.jsp?B=Eyes" class="grid">
+					<img src="../images/eye.jpg" alt="Eyes">
+				</a>
+				<a href="list.jsp?B=Heart" class="grid">
+					<img src="../images/heart.jpg" alt="Heart">
+				</a>
+				<a href="list.jsp?B=Kidney" class="grid">
+					<img src="../images/kidney.jpg" alt="Kidney">
+				</a>
+				<a href="list.jsp?B=Skin" class="grid">
+					<img src="../images/skin.jpg" alt="Skin">
+				</a>
+				<a href="list.jsp?B=Stomach" class="grid">
+					<img src="../images/stomach.jpg" alt="Stomach">
+				</a>
+			</div>
+		</form>
+    </body>    
+</html>

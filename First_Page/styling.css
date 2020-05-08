@@ -1,0 +1,96 @@
+/*styling.css*/
+/*Style body by adding background image and set it to cover, add font-family*/
+body{
+    font-family: Arvo, serif;
+    background: url("../images/3.1.jpg") no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/*Style brand*/
+.brand-name{
+    height: 15px;
+    color: white;
+}
+
+/*Style navigation bar*/
+.navbar-inverse{
+    background: rgba(0,0,0,0.6);   
+}
+
+/*
+#navbarCollapse{
+    float: right;
+}*/
+
+.nav li{
+    color: #fff;
+    font-size: 17px;
+    padding: 10px 10;
+}  
+
+.nav li:hover{
+    border-bottom: 1px solid #00FFB8; 
+    padding-bottom: 9px;
+    cursor:pointer;
+} 
+
+/*Style header*/
+.header{
+    background-color:transparent;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 45px;
+    letter-spacing: 2.5px;
+}
+/*limit the width of the icons section*/
+.container{
+    max-width: 1000px;   
+}
+/*Style icons section using bootstrap grid system*/
+.bodyimage{
+    height: 100px;   
+}
+
+.col-md-4{
+    text-align: center;
+    color: white;
+}
+.col-md-4:hover{
+    cursor: pointer;
+}
+
+.icons p{
+    font-size: 15px;   
+}
+/*Style contact button*/
+.contact{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.btn{
+    background-color: rgba(0, 255, 184, 0.6);
+    border:none;
+    border-radius: 1000px;
+    color: #fff; /*white*/
+    font-size: 18px;
+    padding: 10px 70px;
+    letter-spacing: 1.3px;
+}
+
+/*Style footer*/
+.footer{
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: grey;
+    font-size: 15px;
+    padding: 10px 0;
+}
+/*use media queries to change icons size in small devices*/
+@media (max-width: 768px){
+    .bodyimage{
+        height: 80px;   
+    }
+}

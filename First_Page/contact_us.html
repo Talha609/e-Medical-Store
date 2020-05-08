@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>eMedical Insert</title>
+
+        <link href="styling.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif;}
+            * {box-sizing: border-box;}
+
+            input[type=text], select, textarea
+            {
+              width: 100%;
+              padding: 12px;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+              margin-top: 6px;
+              margin-bottom: 16px;
+              resize: vertical;
+            }
+
+            input[type=button] {
+              background-color: #4CAF50;
+              color: white;
+              padding: 12px 20px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+        </style>
+        <script type="text/javascript" language="javascript">
+			function test()
+			{
+				if(verify())
+				{
+					f.method="get";
+					f.action="email.jsp";
+					f.submit();
+				}
+			}
+            function verify()
+            {
+                var name=document.getElementsByName("name");
+                var name_pattern=/^[a-zA-Z ]{4,}$/;
+                var email_pattern1=/^[a-zA-Z0-9._]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}$/;
+                var email_pattern2=/^[a-zA-Z0-9._]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2}$/;
+                if(name[0].value.length==0)
+                {
+                    alert("Please Enter Name");
+                    return false;
+                }
+                else if(!(name_pattern.test(name[0].value)))
+                {
+                    alert("Enter valid Name");
+                    return false;
+                }
+                else if(name[1].value.length==0)
+                {
+                    alert("Please Enter E-Mail");
+                    return false;
+                }
+                else if(name[2].value.length==0)
+                {
+                    alert("Please Enter Comment");
+                    return false;
+                }
+                else if(name[2].value.length<=20)
+                {
+                    alert("Description must be Greater than 20 character");
+                    return false;
+                }
+				else if(!(email_pattern1.test(name[1].value) || email_pattern2.test(name[1].value)))
+                {
+                    return false;
+                }
+				return true;
+            }
+            function cancel()
+            {
+                window.open("index.html",target="_self");
+            }
+        </script>
+    </head>
+    <body style="background: none">
+      <script src="Nav_home.js"></script>
+        <h1 style="text-align: center">Contact Form</h1>
+        <div class="container">
+          <form name='f'>
+            <label for="fname">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your name..">
+
+            <label for="email">E-Mail:</label>
+            <input type="text" id="email" name="name" placeholder="Your e-mail..">
+
+            <label for="subject">Subject:</label>
+            <textarea id="subject" name="name" placeholder="Write something.." style="height:200px"></textarea>
+
+            <input type="button" value='Submit' onclick="return test()"></button>
+            <a href="index.html"><input type="button" value="Cancel"></a>
+          </form>
+        </div>
+    </body>
+</html>

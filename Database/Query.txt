@@ -1,0 +1,36 @@
+create database eMedical;
+
+use eMedical;
+
+create table Registration
+(
+    firm_name varchar(100) not null,
+    owner_name varchar(50),
+    gst_num varchar(15) not null,
+    address varchar(30) not null,
+    locality varchar(15) not null,
+    email varchar(20) not null primary key,
+    username varchar(15),
+    password varchar(15)
+);
+
+create table medicine
+(
+    med_name varchar(20) not null,
+    manufacturer varchar(20) not null,
+    quantity int not null,
+    price int not null,
+    email_id varchar(20),
+    foreign key (email_id) references registration(email)
+);
+
+ create table doctor
+(
+    doc_name varchar(20) not null,
+    specialist varchar(20) not null,
+    from_time time not null,
+    to_time time not null,
+    fees int not null,
+    email_id varchar(20),
+    foreign key (email_id) references registration(email)
+);

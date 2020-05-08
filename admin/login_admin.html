@@ -1,0 +1,43 @@
+<HTML>
+    <HEAD>
+        <META charter="utf-8">
+            <TITLE>Login Page</TITLE>
+            <link type="text/css" rel="stylesheet" href="sign.css">
+			<script type="text/javascript">
+				function verify(){	
+					var Email_id=document.getElementById("u1").value;
+					var pass=document.getElementById("p1").value;
+					if(Email_id.length==0){
+						alert("Email is Empty");
+						return false;
+					}
+					if(Email_id.length<6){
+						alert("Please enter valid E-Mail");
+						return false;
+					}
+					else if(pass.length<6){
+						alert("Password cannot be Empty")
+                        return false;
+					}
+				}
+			</script>
+				
+            
+    </HEAD>
+	<BODY>
+        <DIV class ="wrap">
+			<form method="post" action="login_admin.jsp" onsubmit="return verify()">
+            <h1>Login as Admin</h1>
+               <i class="fa fa-user" aria-hidden="true"></i>
+               <INPUT type="text" placeholder="Email-Id" name="c2" value="" id="u1">
+            
+            	<i class="fa fa-lock" aria-hidden="true"></i>
+				<INPUT type="password" placeholder="Password" name="c2" value="" id="p1">
+					
+            <INPUT class = "btn" type="submit" name="" value="LOGIN">
+			<input type="reset">
+		<A style="float: right;" href="../Akif/login.html">Login as User</A>
+			</form>
+		</DIV>
+    </BODY>
+</HTML>
